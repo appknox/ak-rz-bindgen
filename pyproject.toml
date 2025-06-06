@@ -26,7 +26,7 @@ archs = ["AMD64"]
 environment = { PATH="/opt/homebrew/bin:$PATH", MACOSX_DEPLOYMENT_TARGET="14.0" }
 
 [project]
-name = "rz-bindings"
+name = "ak-rz-bindings"
 dynamic = [
   'version',
 ]
