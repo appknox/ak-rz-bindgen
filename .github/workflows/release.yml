@@ -23,16 +23,17 @@ jobs:
   publish-pypi:
     runs-on: ubuntu-24.04
     needs: [build]
-    permissions:
-      id-token: write
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-          name: wheels-ubuntu-24.04
+          pattern: wheels-*
+          merge-multiple: true
           path: dist
 
       - name: Publish wheels
         uses: pypa/gh-action-pypi-publish@v1.10.3
         with:
+          user: __token__
           password: ${{ secrets.PYPI_TOKEN }}
+          skip-existing: true
